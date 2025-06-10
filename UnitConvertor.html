@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Unit Converter</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body class="w3-container w3-light-grey">
+
+    <div class="w3-card-4 w3-white w3-margin-top w3-padding">
+        <h2 class="w3-center w3-text-teal">Unit Converter</h2>
+
+        <div class="w3-section">
+            <label class="w3-text-grey">Enter a value:</label>
+            <input class="w3-input w3-border" type="number" id="value" placeholder="number">
+        </div>
+
+        <div class="w3-section w3-center">
+            <button class="w3-button w3-teal w3-margin" onclick="convert('cmToM')">cm → m</button>
+            <button class="w3-button w3-teal w3-margin" onclick="convert('mToCm')">m → cm</button>
+            <button class="w3-button w3-teal w3-margin" onclick="convert('mToKm')">m → km</button>
+            <button class="w3-button w3-teal w3-margin" onclick="convert('kmToM')">km → m</button>
+        </div>
+
+        <div class="w3-section w3-pale-blue w3-padding">
+            <p id="result" class="w3-large">result</p>
+        </div>
+
+        <div class="w3-section">
+            <a href="Tools.html" class="w3-button w3-grey">Back</a>
+        </div>
+    </div>
+
+    <script>
+        function convert(type) {
+            var input = parseFloat(document.getElementById('value').value);
+            var result = '';
+
+            if (isNaN(input)) {
+                result = 'Please enter a valid number.';
+            } else {
+                switch (type) {
+                    case 'cmToM':
+                        result = input + ' cm = ' + (input / 100) + ' m';
+                        break;
+                    case 'mToCm':
+                        result = input + ' m = ' + (input * 100) + ' cm';
+                        break;
+                    case 'mToKm':
+                        result = input + ' m = ' + (input / 1000) + ' km';
+                        break;
+                    case 'kmToM':
+                        result = input + ' km = ' + (input * 1000) + ' m';
+                        break;
+                    default:
+                        result = 'Invalid conversion type';
+                }
+            }
+
+            document.getElementById('result').innerText = result;
+        }
+    </script>
+
+</body>
+</html>
